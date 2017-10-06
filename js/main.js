@@ -24,20 +24,22 @@ $(function () {
 
   /*----- app's state (variables) -----*/
   var board = [
-    [, , , , , ,],
-    [, , , , , ,],
-    [, , , , , ,],
-    [, , , , , ,],
-    [, , , , , ,],
-    [, , , , , ,]
+    [ , , , , , , ],
+    [ , , , , , , ],
+    [ , , , , , , ],
+    [ , , , , , , ],
+    [ , , , , , , ],
+    [ , , , , , , ]
   ];
   
   player1color = "yellow";
   player2color = "blue";
 
-  player1 = $({ "background-color": `${player1color}` });
-  player2 = $({ "background-color": `${player2color}` });
-  
+
+  player1 = ({ "background-color": `${player1color}` });
+  player2 = ({ "background-color": `${player2color}` });
+  blankSpace = ({ "background-color": "white"});
+
 
 
 
@@ -58,61 +60,60 @@ $(function () {
 
   /*----- functions -----*/
   function init() {
-    $('.col1').css({ "background-color": "white" });
-    $('.col2').css({ "background-color": "white" });
-    $('.col3').css({ "background-color": "white" });
-    $('.col4').css({ "background-color": "white" });
-    $('.col5').css({ "background-color": "white" });
-    $('.col6').css({ "background-color": "white" });
-    $('.col7').css({ "background-color": "white" });
+    $('td').css({"background-color": "white"});
     turn = player1;
     board = [
-      [, , , , , ,],
-      [, , , , , ,],
-      [, , , , , ,],
-      [, , , , , ,],
-      [, , , , , ,],
-      [, , , , , ,]
+      [ , , , , , , ],
+      [ , , , , , , ],
+      [ , , , , , , ],
+      [ , , , , , , ],
+      [ , , , , , , ],
+      [ , , , , , , ]
     ];
     render();
   }
-  column1 = [];
-  column2 = [];
-  column3 = [];
-  column4 = [];
-  column5 = [];
-
+  
 
 
 
   function click(event) {
-    console.log(event.target.id);
-    if ($(this).css(!({ "background-color": "white" }))); {
+    var cellTarget = event.target.id;
+    console.log(cellTarget);
+    console.log(player1);
+    console.log(player2);
+    if ($(cellTarget).css(!({ "background-color": "white" }))); {
       return;
     }
     if (turn === player1) {
-      $(this).css(player1);
+      $(cellTarget).css(player1);
     } else {
-      $(this).css(player2);
+      $(cellTarget).css(player2);
     }
-    board[$(this).attr('id')] = turn;
-    checkForWinner();
-    switchTurn();
-    if (event.target.id === "r0c0" && board[0][idx] === null && board[1][0] === null && board[2][0] === null && board[3][0] === null && board[4][0] === null && board[0][0] === null) {
-      if (turn = player1) {
-        board.push($(this).css(player1));
-      } else {
-        board.push($(this).css(player2));
-      }
+    // board[$(this).attr('id')] = turn;
+    if (cellTarget === "r0c0" && board[0][0] === null && board[1][0] === null && board[2][0] === null && board[3][0] === null && board[4][0] === null && board[5][0] === null) {
+      console.log(board);
+      turn = player1 ? board.push($(this).css(player1)) : board.push($(this).css(player2));
+    }
+      
 
       checkBoard();
+      render();
       switchTurn();
     };
-  };
+    
+
+  
+
+  function render() {
+    $('td').each(function(idx, elem) {
+        $(elem).css(board[idx])
+    })
+  }
 
     function checkBoard() {
       board.forEach(function (idx) {
         board[idx].forEach(function (i, elem) {
+          console.log(board[idx][i]);
           if (elem === 'true') {
             return elem;
             console.log(elem)
@@ -120,6 +121,8 @@ $(function () {
         });
       });
     };
+
+    
     function switchTurn() {
       if (turn === player1) {
         turn = player2;
