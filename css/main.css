@@ -5,43 +5,7 @@ height: 700px;
 width: 700px;
 }
 
-.col1 {
-  outline: solid black;
-  height: 100px;
-  width: 100px; 
-}
-
-.col2 {
-  outline: solid black;
-  height: 100px;
-  width: 100px; 
-}
-
-.col3 {
-  outline: solid black;
-  height: 100px;
-  width: 100px; 
-}
-
-.col4 {
-  outline: solid black;
-  height: 100px;
-  width: 100px; 
-}
-
-.col5 {
-  outline: solid black;
-  height: 100px;
-  width: 100px;
-}
-
-.col6 {
-  outline: solid black;
-  height: 100px;
-  width: 100px; 
-}
-
-.col7 {
+td {
   outline: solid black;
   height: 100px;
   width: 100px; 

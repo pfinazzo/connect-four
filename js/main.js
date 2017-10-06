@@ -24,21 +24,24 @@ $(function () {
 
   /*----- app's state (variables) -----*/
   var board = [
-    [ , , , , , , ],
-    [ , , , , , , ],
-    [ , , , , , , ],
-    [ , , , , , , ],
-    [ , , , , , , ],
-    [ , , , , , , ]
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0]
   ];
-  
+
   player1color = "yellow";
   player2color = "blue";
+  player1 = 1;
+  player2 = 2;
 
 
-  player1 = ({ "background-color": `${player1color}` });
-  player2 = ({ "background-color": `${player2color}` });
-  blankSpace = ({ "background-color": "white"});
+
+
+  blankSpace = null;
 
 
 
@@ -60,74 +63,107 @@ $(function () {
 
   /*----- functions -----*/
   function init() {
-    $('td').css({"background-color": "white"});
+    $('td').css({ "background-color": "white" });
     turn = player1;
     board = [
-      [ , , , , , , ],
-      [ , , , , , , ],
-      [ , , , , , , ],
-      [ , , , , , , ],
-      [ , , , , , , ],
-      [ , , , , , , ]
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0]
     ];
     render();
   }
-  
 
 
 
   function click(event) {
-    var cellTarget = event.target.id;
-    console.log(cellTarget);
-    console.log(player1);
-    console.log(player2);
-    if ($(cellTarget).css(!({ "background-color": "white" }))); {
-      return;
-    }
+    var column = "data-col";
+    var row = "data-row";
+    var cellTarget = $(event.target);
+    console.log(cellTarget.attr(column));
+    console.log(cellTarget.parent().attr(row));
+    cellTarget === player1 ? player1 = ({ "background-color": `${player1color}` }) : player2 = ({ "background-color": `${player2color}` });
+    cellTarget !== player1 || player2 ? cellTarget = turn : return;
     if (turn === player1) {
-      $(cellTarget).css(player1);
+      cellTarget.css(player1);
     } else {
-      $(cellTarget).css(player2);
+      cellTarget.css(player2);
     }
-    // board[$(this).attr('id')] = turn;
-    if (cellTarget === "r0c0" && board[0][0] === null && board[1][0] === null && board[2][0] === null && board[3][0] === null && board[4][0] === null && board[5][0] === null) {
-      console.log(board);
-      turn = player1 ? board.push($(this).css(player1)) : board.push($(this).css(player2));
-    }
-      
 
-      checkBoard();
-      render();
-      switchTurn();
-    };
-    
+    board[0].forEach(function (i) {
+      i ? return; : board[0].push(turn);
+    });
 
-  
+    board[1].forEach(function (i) {
+      i ? return : board[1].push(turn);
+    });
 
-  function render() {
-    $('td').each(function(idx, elem) {
-        $(elem).css(board[idx])
-    })
-  }
+    board[2].forEach(function (i) {
+      i ? return : board[2].push(turn);
+    });
 
-    function checkBoard() {
-      board.forEach(function (idx) {
-        board[idx].forEach(function (i, elem) {
-          console.log(board[idx][i]);
-          if (elem === 'true') {
-            return elem;
-            console.log(elem)
-          };
-        });
-      });
-    };
+    board[3].forEach(function (i) {
+      i ? return : board[3].push(turn);
+    });
 
-    
-    function switchTurn() {
-      if (turn === player1) {
-        turn = player2;
-      } else {
-        turn = player1;
-      }
-    }
+    board[4].forEach(function (i) {
+      i ? return : board[4].push(turn);
+    });
+
+    board[5].forEach(function (i) {
+      i ? return : board[5].push(turn);
+    });
+
+    board[6].forEach(function (i) {
+      i ? return : board[6].push(turn);
+    });
+
+    console.log(board);
+    turn = player1 ? board.push(player1) : board.push(player2);
+    turn = player1 ? console.log(player1) : console.log(player2);
+    checkBoard();
+    render();
+    switchTurn();
+  };
+});
+
+
+
+
+
+
+function render() {
+  $('td').each(function (idx, elem) {
+    $(elem).css(board[idx])
   })
+}
+
+function checkBoard() {
+  board.forEach(function (idx) {
+    board[idx].forEach(function (i, elem) {
+      console.log(board[idx][i]);
+      if (elem === 'true') {
+        return elem;
+        console.log(elem)
+      };
+    });
+  });
+};
+
+
+function switchTurn() {
+  if (turn === player1) {
+    turn = player2;
+  } else {
+    turn = player1;
+  }
+  init();
+}
+
+
+
+
+
