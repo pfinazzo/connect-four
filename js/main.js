@@ -24,13 +24,12 @@ $(function () {
 
   /*----- app's state (variables) -----*/
   var board = [
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0]
   ];
 
   player1color = "yellow";
@@ -66,12 +65,11 @@ $(function () {
     $('td').css({ "background-color": "white" });
     turn = player1;
     board = [
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0]
       [0, 0, 0, 0, 0, 0, 0]
     ];
     render();
@@ -80,59 +78,29 @@ $(function () {
 
 
   function click(event) {
-    var column = "data-col";
-    var row = "data-row";
     var cellTarget = $(event.target);
-    console.log(cellTarget.attr(column));
-    console.log(cellTarget.parent().attr(row));
+    var column = cellTarget.attr("data-col");
+    var row = cellTarget.parent().attr("data-row");
     cellTarget === player1 ? player1 = ({ "background-color": `${player1color}` }) : player2 = ({ "background-color": `${player2color}` });
-    cellTarget !== player1 || player2 ? cellTarget = turn : return;
-    if (turn === player1) {
-      cellTarget.css(player1);
-    } else {
-      cellTarget.css(player2);
-    }
+    cellTarget === 0 ? board[row][column] = turn : cellTarget === 1 || 2;
+    // if cellTarget === null ? 
+    // if (turn === player1) {
+    //   cellTarget.css(player1);
+    // } else {
+    //   cellTarget.css(player2);
+    // }
 
-    board[0].forEach(function (i) {
-      i ? return; : board[0].push(turn);
+    board[column].forEach(function (i) {
+      turn = player1 ? board[column][i] = player1 : board[column][i] = player2;
     });
 
-    board[1].forEach(function (i) {
-      i ? return : board[1].push(turn);
-    });
-
-    board[2].forEach(function (i) {
-      i ? return : board[2].push(turn);
-    });
-
-    board[3].forEach(function (i) {
-      i ? return : board[3].push(turn);
-    });
-
-    board[4].forEach(function (i) {
-      i ? return : board[4].push(turn);
-    });
-
-    board[5].forEach(function (i) {
-      i ? return : board[5].push(turn);
-    });
-
-    board[6].forEach(function (i) {
-      i ? return : board[6].push(turn);
-    });
-
-    console.log(board);
-    turn = player1 ? board.push(player1) : board.push(player2);
-    turn = player1 ? console.log(player1) : console.log(player2);
-    checkBoard();
+    // console.log(board);
+    
+    // turn = player1 ? console.log(player1) : console.log(player2);
+    checkBoard(column);
     render();
     switchTurn();
   };
-});
-
-
-
-
 
 
 function render() {
@@ -141,17 +109,19 @@ function render() {
   })
 }
 
-function checkBoard() {
-  board.forEach(function (idx) {
-    board[idx].forEach(function (i, elem) {
-      console.log(board[idx][i]);
-      if (elem === 'true') {
+
+
+function checkBoard(column, elem) {
+ for (var i = 0; i < board.length; i++) {
+   if(board[i][column] === 4){
+    $(`[data-row=${i}]>[data-col=${column}]`).addClass("l")
+   };
+ };
+  if (elem === 'true') {
         return elem;
-        console.log(elem)
-      };
-    });
+     };
+    };
   });
-};
 
 
 function switchTurn() {
