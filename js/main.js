@@ -43,8 +43,16 @@ $(function () {
     var cellTarget = $(event.target); // event target's cell
     var column = cellTarget.attr("data-col"); // event target's column
     var row = cellTarget.parent().attr("data-row"); // event target's row
-    board[row][column] === 1 || board[row][column] === 2 ? board[row][column] = turn : board[row][column] = turn;
+    // board[row][column] === true ?  : board[row][column] = turn;
+    if (board[row][column] === 1) {
+      return;
+    } else if (board[row][column] === 2) {
+      return;
+    } else {
+      board[row][column] = turn;
+    }
     (board[row][column] === 1) ? $(this).css({ "background-color": `${player1color}`}) : $(this).css({ "background-color": `${player2color}`});
+    console.log(board);
       switchTurn();
     };
   
