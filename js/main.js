@@ -44,9 +44,9 @@ $(function () {
     var column = cellTarget.attr("data-col"); // event target's column
     var row = cellTarget.parent().attr("data-row"); // event target's row
     // board[row][column] === true ?  : board[row][column] = turn;
-    if (board[row][column] === 1) {
-      return;
-    } else if (board[row][column] === 2) {
+
+    // if the cell you select is already filled then do nothing, otherwise push the player number held in the turn variable to the corresponding cell in the game board
+    if (board[row][column] === 1 || board[row][column] === 2) {
       return;
     } else {
       board[row][column] = turn;
