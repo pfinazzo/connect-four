@@ -10,3 +10,11 @@ td {
   height: 100px;
   width: 100px; 
 }
+
+player1move {
+  background-color: blue;
+}
+
+player2move {
+  background-color: red;
+}
