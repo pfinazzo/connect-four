@@ -11,3 +11,9 @@ td {
   width: 100px; 
 }
 
+.player1color {
+  background-color: blue !important;
+}
+.player2color {
+  background-color: red !important;
+}
