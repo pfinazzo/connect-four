@@ -5,6 +5,14 @@ height: 600px;
 width: 600px;
 }
 
+#colorTable {
+  margin: 0 auto;
+  margin-top: 10px;
+  outline: solid black;
+  height: 50px;
+  width: 300px;
+}
+
 td {
   outline: solid black;
   height: 100px;
@@ -18,14 +26,38 @@ td {
   background-color: blue !important;
 }
 
+#resetboard {
+  margin: 0 auto;
+  padding-left: 240px;
+  padding-top: 20px;
+  display: inline-block;
+}
+#resetgame {
+  margin: 0 auto;
+  padding-left: 240px;
+  padding-top: 20px;
+  display: inline-block;
+}
 #reset {
   margin: 0 auto;
-  padding-left: 635px;
+  padding-left: 240px;
   padding-top: 20px;
+  display: inline-block;
 }
+
 
 button {
   height: 75px;
   width: 150px;
   margin: 0 auto;
+}
+
+#player1score {
+  display: inline-block;
+  float: left;
+}
+
+#player2score {
+  display: inline-block;
+  float: right;
 }

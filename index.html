@@ -10,6 +10,13 @@
   <title>Document</title>
 </head>
 <body>
+  <main>
+    <div id = "player1score">
+      Player 1 score: <small id="score1"></small>
+    </div>
+    <div id="player2score">
+        Player 2 score: <small id="score2"></small>
+    </div>
   <table id= "gameboard">
     <tr data-row="0">
       <td data-col="0"></td>
@@ -66,8 +73,36 @@
       <td data-col="6"></td>
     </tr>
   </table>
+</main>
+</div>
+  </body>
+  <div id="resetboard">
+  <button>Reset Board</button>
+  </div>
+  <div id="resetgame">
+      <button>Reset Score</button>
+  </div>
   <div id="reset">
-  <button>RESET</button>
+      <button>Reset Board and Score</button>
+  </div>
+  <div>
+    <table id="colorTable">
+      <tr>
+        <td id="red"></td>
+        <td id="orange"></td>
+        <td id="yellow"></td>
+        <td id="green"></td>
+        <td id="bluegreen"></td>
+        
+      </tr>
+      <tr>
+        <td id="blue"></td>
+        <td id="purple"></td>
+        <td id="pink"></td>
+        <td id="violet"></td>
+        <td id="aqua"></td>
+      </tr>
+    </table>
   </div>
 <!-- <h1>Pick a Color</h1> -->
 </body>

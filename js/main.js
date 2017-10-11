@@ -11,7 +11,8 @@ $(function () {
     [0, 0, 0, 0, 0, 0, 0]
   ];
 
-
+  var player1score = 0;
+  var player2score = 0;
 
   var player1Color = "Red";
   var player2Color = "Blue";
@@ -23,7 +24,9 @@ $(function () {
 
   /*----- event listeners -----*/
   $('table').on('click', 'td', click);
-  $('#reset').on('click', init);
+  $('#resetboard').on('click', init);
+  $('#reset').on('click', init2);
+  $('#resetgame').on('click', clearScore);
 
 
   /*----- functions -----*/
@@ -98,8 +101,12 @@ $(function () {
       init();
       if (cell1 === 1) {
         alert(`${player1Color} has won!`);
+        player1score++;
+        $('#score1').text(player1score);
       } else {
         alert(`${player2Color} has won!`);
+        player2score++;
+        $('#score2').text(player2score);
       }
     }
   };
@@ -145,8 +152,31 @@ $(function () {
     }
   }
 
+  function clearScore() {
+    player1score = 0;
+    player2score = 0;
+    $('#score1').text(player1score);
+    $('#score2').text(player2score);
+  }
 
-  init();
+  function init2 () {
+    $('td').removeClass('player1color');
+    $('td').removeClass('player2color');
+    $('td').css({ "background-color": "white" });
+    turn = player1;
+    console.log(player1)
+    board = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0]
+    ];
+    clearScore();
+  };
+
+  init2();
 });
 
 
