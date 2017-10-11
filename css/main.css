@@ -1,8 +1,8 @@
 #gameboard {
 margin: 0 auto;
 outline: solid black;
-height: 700px;
-width: 700px;
+height: 600px;
+width: 600px;
 }
 
 td {
@@ -12,8 +12,20 @@ td {
 }
 
 .player1color {
-  background-color: blue !important;
+  background-color: red !important;
 }
 .player2color {
-  background-color: red !important;
+  background-color: blue !important;
+}
+
+#reset {
+  margin: 0 auto;
+  padding-left: 635px;
+  padding-top: 20px;
+}
+
+button {
+  height: 75px;
+  width: 150px;
+  margin: 0 auto;
 }
