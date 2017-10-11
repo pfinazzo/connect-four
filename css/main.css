@@ -26,6 +26,7 @@ td {
   background-color: blue !important;
 }
 
+
 #resetboard {
   margin: 0 auto;
   padding-left: 240px;
@@ -60,4 +61,52 @@ button {
 #player2score {
   display: inline-block;
   float: right;
+}
+
+.player1move {
+  background-color: aqua;
+}
+
+.player2move {
+  background-color: gold;
+}
+
+.redClass {
+  background-color: red;
+}
+
+.orangeClass {
+  background-color: orange;
+}
+
+.yellowClass {
+  background-color: yellow;
+}
+
+.yellowgreenClass {
+  background-color: yellowgreen;
+}
+
+.greenClass {
+  background-color: green;
+}
+
+.bluegreenClass {
+  background-color: darkcyan;
+}
+
+.blueClass {
+  background-color: blue;
+}
+
+.purpleClass {
+  background-color: purple;
+}
+
+.pinkClass {
+  background-color: pink;
+}
+
+.violetClass {
+  background-color: violet;
 }
