@@ -50,6 +50,9 @@ $(function () {
     var row = cellTarget.parent().attr("data-row"); // event target's row
     row = parseInt(row, 10);
     column = parseInt(column, 10);
+    if (board[row][column] === 1 || board[row][column] === 2){
+      return;
+    }
     for (var i = row; i <= board.length - 1; i++) {
       var currentRow = i;
       var nextRow = currentRow + 1;
@@ -145,7 +148,6 @@ $(function () {
 
   init();
 });
-
 
 
 
