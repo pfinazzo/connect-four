@@ -19,6 +19,8 @@ $(function () {
   var player1 = 1;
   var player2 = 2;
   var turn;
+  var tie;
+  var tieCount = 0;
   /*----- cached element references -----*/
 
   /*----- event listeners -----*/
@@ -103,6 +105,7 @@ $(function () {
       }
 
     }
+    turn === player1 ? ($('#turn2').text(null) && $('#turn1').text('turn')) : ($('#turn1').text(null) && $('#turn2').text('turn'));
     checkWinner(board);
   }
 
@@ -120,6 +123,20 @@ $(function () {
       }
     }
   };
+
+  function checkTie() {
+  board.forEach(function(i){
+    board[i].forEach(function(j){
+      if (board[i][j] === 0) {
+       tie = false;
+      } else {
+        tie = true;
+      } 
+    });    
+  });
+
+  tie === true ? switchTurn : tieCount++ && alert('Tie Game!') && $('#.tieGame').text(tieCount);
+  }
 
 
   function checkWinner(board) {
@@ -158,10 +175,12 @@ $(function () {
   }
 
   function clearScore() {
+    tieCount = 0;
     player1score = 0;
     player2score = 0;
     $('#score1').text(player1score);
     $('#score2').text(player2score);
+    $('#.tieGame').text(tieCount);
   }
 
   function init2() {
@@ -169,15 +188,14 @@ $(function () {
     $('.table1cell').removeClass('player2color');
     turn = player1;
     console.log(player1)
-    board = [
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
-    ];
-    clearScore();
+    // board = [
+    //   [0, 0, 0, 0, 0, 0, 0],
+    //   [0, 0, 0, 0, 0, 0, 0],
+    //   [0, 0, 0, 0, 0, 0, 0],
+    //   [0, 0, 0, 0, 0, 0, 0],
+    //   [0, 0, 0, 0, 0, 0, 0],
+    //   [0, 0, 0, 0, 0, 0, 0]
+    // ];
   };
   // color functions
 // function green() {

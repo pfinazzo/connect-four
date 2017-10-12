@@ -11,6 +11,25 @@ button {
   display: inline-block;
   float: left;
   margin-top: 50px;
+  text-align: left;
+}
+
+#turn1 {
+  margin-top: 20px;
+  font-size: 50px;
+  float: left;
+  padding-right: 30px;
+  text-align: left;
+  min-width: 500px;
+  color: red;
+}
+#turn2 {
+  margin-top: 20px;
+  font-size: 50px;
+  float: right;
+  text-align: right;
+  min-width: 500px;
+  color: blue;
 }
 
 #score2 {
@@ -18,6 +37,7 @@ button {
   font-size: 50px;
   display: inline-block;
   float: right;
+  text-align: right;
 }
 
 header {
@@ -25,6 +45,12 @@ header {
   margin-bottom: 20px;
   margin-top: 20px;
   font-size: 50px;
+}
+
+
+#tieScore {
+  text-align: center;
+  font-size: 30px;
 }
 
 
