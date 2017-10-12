@@ -28,24 +28,27 @@ $(function () {
   $('#resetboard').on('click', init);
   $('#reset').on('click', init2);
   $('#resetgame').on('click', clearScore);
-  // $('.redClass').on('click', red);
-  // $('.orangeClass').on('click', orange);
-  // $('.yellowClass').on('click', yellow);
-  // $('.yellowgreenClass').on('click', yellowgreen);
-  // $('.greenClass').on('click', green);
-  // $('.bluegreenClass').on('click', bluegreen);
-  // $('.blueClass').on('click', blue);
-  // $('.purpleClass').on('click', purple);
-  // $('.pinkClass').on('click', pink);
-  // $('.violetClassgi').on('click', violet);
+  // color event listeners
+  $('.redClass').on('click', red);
+  $('.orangeClass').on('click', orange);
+  $('.yellowClass').on('click', yellow);
+  $('.yellowgreenClass').on('click', yellowgreen);
+  $('.greenClass').on('click', green);
+  $('.bluegreenClass').on('click', bluegreen);
+  $('.blueClass').on('click', blue);
+  $('.purpleClass').on('click', purple);
+  $('.pinkClass').on('click', pink);
+  $('.violetClass').on('click', violet);
 
 
   /*----- functions -----*/
   function init() {
-    $('.table1cell').removeClass('player1color');
-    $('.table1cell').removeClass('player2color');
+    player1Color = "Red";
+    player2Color = "Blue";
+
     turn = player1;
-    
+    $('#turn2').text(null);
+    $('#turn1').text('turn');
 
     board = [
       [0, 0, 0, 0, 0, 0, 0],
@@ -64,7 +67,7 @@ $(function () {
     var row = cellTarget.parent().attr("data-row"); // event target's row
     row = parseInt(row, 10);
     column = parseInt(column, 10);
-      if (board[row][column] === 1 || board[row][column] === 2) {
+    if (board[row][column] === 1 || board[row][column] === 2) {
       return;
     }
     for (var i = row; i <= board.length - 1; i++) {
@@ -73,12 +76,12 @@ $(function () {
       console.log(nextRow);
       if ((board[nextRow] === undefined || board[nextRow][column] === 1 || board[nextRow][column] === 2)) {
         board[currentRow][column] = turn;
-          return switchTurn();
-          var lastOpenRow = nextRow;
-        }
-        
+        return switchTurn();
+        var lastOpenRow = nextRow;
       }
-    };
+
+    }
+  };
 
 
   function switchTurn() {
@@ -98,9 +101,9 @@ $(function () {
       for (var j = 0; j < board[index].length; j++) {
         var column = board[index][j];
         if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('player1color');
+          $(`[data-row=${index}]>[data-col=${j}]`).css({"background-color" : player1Color});
         } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('player2color');
+          $(`[data-row=${index}]>[data-col=${j}]`).css({"background-color" : player2Color});
         }
       }
 
@@ -125,17 +128,17 @@ $(function () {
   };
 
   function checkTie() {
-  board.forEach(function(i){
-    board[i].forEach(function(j){
-      if (board[i][j] === 0) {
-       tie = false;
-      } else {
-        tie = true;
-      } 
-    });    
-  });
+    board.forEach(function (i) {
+      board[i].forEach(function (j) {
+        if (board[i][j] === 0) {
+          tie = false;
+        } else {
+          tie = true;
+        }
+      });
+    });
 
-  tie === true ? switchTurn : tieCount++ && alert('Tie Game!') && $('#.tieGame').text(tieCount);
+    tie === true ? switchTurn : tieCount++ && alert('Tie Game!') && $('#tieGame').text(tieCount);
   }
 
 
@@ -180,201 +183,121 @@ $(function () {
     player2score = 0;
     $('#score1').text(player1score);
     $('#score2').text(player2score);
-    $('#.tieGame').text(tieCount);
+    $('#tieGame').text(tieCount);
   }
 
   function init2() {
-    $('.table1cell').removeClass('player1color');
-    $('.table1cell').removeClass('player2color');
-    turn = player1;
+    player1Color = "Red";
+    player2Color = "Blue";
+    $('#turn2').text(null);
+    $('#turn1').text('turn');
     console.log(player1)
-    // board = [
-    //   [0, 0, 0, 0, 0, 0, 0],
-    //   [0, 0, 0, 0, 0, 0, 0],
-    //   [0, 0, 0, 0, 0, 0, 0],
-    //   [0, 0, 0, 0, 0, 0, 0],
-    //   [0, 0, 0, 0, 0, 0, 0],
-    //   [0, 0, 0, 0, 0, 0, 0]
-    // ];
+    board = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0]
+    ];
+    clearScore();
   };
+
+
+
   // color functions
-// function green() {
-//   if (turn === player1){
-//     $('.player1color').attr({"background-color": "green"});
-//   } else {
-//     $('.player2color').attr({"background-color": "green"});
-//   }
-// };
-
-// $('.greenClass').on('click', green);
-
-  // function red() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('redClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('redClass');
-  //       }
-  //     }
-
-  //   }
-  //   }
-
-  // function orange() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('orangeClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('orangeClass');
-  //       }
-  //     }
-
-  //   }
-  //   }
-  // function yellow() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowClass');
-  //       }
-  //     }
-
-  //   }
-  //   }
-  // function yellowgreen() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowgreenClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowgreenClass');
-  //       }
-  //     }
-
-  //   }
-  //   }
-  // function green() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('greenClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('greenClass');
-  //       }
-  //     }
-
-  //   }
-  //   }
 
 
-  // function bluegreen() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('bluegreenClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('bluegreenClass');
-  //       }
-  //     }
 
-  //   }
-  //   }
+  function red() {
+    if (turn === player1) {
+      player1Color = "red";
+    } else if (turn === player2) {
+      player2Color = "red";
+    } update();
+  }
 
-  // function blue() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('blueClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('blueClass');
-  //       }
-  //     }
 
-  //   }
-  //   }
-  // function purple() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('purpleClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('purpleClass');
-  //       }
-  //     }
+  function orange() {
 
-  //   }
-  //   }
+    if (turn === player1) {
+      player1Color = "orange";
+    } else if (turn === player2) {
+      player2Color = "orange";
+    } update();
+  }
 
-  // function pink() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('pinkClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('pinkClass');
-  //       }
-  //     }
 
-  //   }
-  //   }
-  // function violet() {
-  //   for (var index = 0; index < board.length; index++) {
-  //     var row = board[index];
-  //     for (var j = 0; j < board[index].length; j++) {
-  //       var column = board[index][j];
-  //       if (column === 1) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1color');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('violetClass');
-  //       } else if (column === 2) {
-  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2color');
-  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('violetClass');
-  //       }
-  //     }
+  function yellow() {
 
-  //   }
-  //   }
-    init2();
-  });
+    if (turn === player1) {
+      player1Color = "yellow";
+    } else if (turn === player2) {
+      player2Color = "yellow";
+    } update();
+  }
+  function yellowgreen() {
+
+    if (turn === player1) {
+      player1Color = "yellowgreen";
+    } else if (turn === player2) {
+      player2Color = "yellowgreen";
+    } update();
+  }
+  function green() {
+
+    if (turn === player1) {
+      player1Color = "green";
+    } else if (turn === player2) {
+      player2Color = "green";
+    } update();
+  }
+  function bluegreen() {
+
+    if (turn === player1) {
+      player1Color = "Dark Cyan";
+    } else if (turn === player2) {
+      player2Color = "Dark Cyan";
+    } update();
+  }
+
+  function blue() {
+
+    if (turn === player1) {
+      player1Color = "blue";
+    } else if (turn === player2) {
+      player2Color = "blue";
+    } update();
+  }
+  function purple() {
+
+    if (turn === player1) {
+      player1Color = "purple";
+    } else if (turn === player2) {
+      player2Color = "purple";
+    } update();
+  }
+  function pink() {
+
+    if (turn === player1) {
+      player1Color = "pink";
+    } else if (turn === player2) {
+      player2Color = "pink";
+    } update();
+  }
+  function violet() {
+
+    if (turn === player1) {
+      player1Color = "violet";
+    } else if (turn === player2) {
+      player2Color = "violet";
+    } update();
+  }
+
+
+
+  init2();
+});
 
 
 

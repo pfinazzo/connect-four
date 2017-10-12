@@ -12,6 +12,7 @@ button {
   float: left;
   margin-top: 50px;
   text-align: left;
+  min-width: 100px;
 }
 
 #turn1 {
@@ -32,12 +33,17 @@ button {
   color: blue;
 }
 
+#colorPick{
+  text-align: center;
+}
+
 #score2 {
   margin-top: 50px;
   font-size: 50px;
   display: inline-block;
   float: right;
   text-align: right;
+  min-width: 100px;
 }
 
 header {
@@ -73,28 +79,24 @@ width: 600px;
   border-radius: 50px;
 }
 
-tr {
-  /* border-radius: 50px; */
-  /* padding: 50px; */
 
-
-}
 
 td {
   outline: solid black;
   height: 100px;
   width: 100px; 
-  /* border-radius: 50px; */
 }
 
-.player1color {
+/* .player1color {
   background-color: red;
 }
 .player2color {
   background-color: blue;
+} */
+#tieGame {
+  text-align: center;
+  font-size: 30px;
 }
-
-
 #resetboard {
   margin: 0 auto;
   padding-left: 240px;
@@ -141,16 +143,6 @@ button:focus, button:active {
 
 }
 
-
-
-/* .player1move {
-  background-color: aqua;
-}
-
-.player2move {
-  background-color: gold;
-}
-
 .redClass {
   background-color: red;
 }
@@ -189,4 +181,4 @@ button:focus, button:active {
 
 .violetClass {
   background-color: violet;
-} */
+}
