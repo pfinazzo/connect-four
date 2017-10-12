@@ -6,18 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
   <script defer src="js/main.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
+<header>
+  CONNECT FOUR!
+</header>
   <main>
-    <div id = "player1score">
-      Player 1 score: <small id="score1"></small>
-    </div>
-    <div id="player2score">
-        Player 2 score: <small id="score2"></small>
-    </div>
-  <table id= "gameboard">
+    <div id = "player1score">Player 1 score:</div>
+        <div id="score1"></div>
+    
+    <div id="player2score">Player 2 score:</div>
+           <div id="score2"></div>
+    
+  <table id="gameboard">
     <tr data-row="0">
       <td data-col="0" class = "table1cell"></td>
       <td data-col="1" class = "table1cell"></td>
@@ -79,13 +83,13 @@
   <div id="resetboard">
   <button>Reset Board</button>
   </div>
-  <div id="resetgame">
-      <button>Reset Score</button>
-  </div>
   <div id="reset">
       <button>Reset Board and Score</button>
   </div>
-  <div>
+  <div id="resetgame">
+      <button>Reset Score</button>
+  </div>
+  <!-- <div>
     <table id="colorTable">
       <tr>
         <td class="redClass"></td>
@@ -102,7 +106,7 @@
         <td class="violetClass"></td>
       </tr>
     </table>
-  </div>
+  </div> -->
 <!-- <h1>Pick a Color</h1> -->
 </body>
 </html>

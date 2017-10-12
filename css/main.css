@@ -1,3 +1,33 @@
+body {
+  background-image: url("https://www.muralswallpaper.com/app/uploads/white-green-marble-textures-plain.jpg");
+  font-family: 'Gloria Hallelujah', sans-serif;
+}
+
+button {
+  font-family: 'Gloria Hallelujah', sans-serif;
+}
+#score1 {
+  font-size: 50px;
+  display: inline-block;
+  float: left;
+  margin-top: 50px;
+}
+
+#score2 {
+  margin-top: 50px;
+  font-size: 50px;
+  display: inline-block;
+  float: right;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 50px;
+}
+
+
 #gameboard {
 margin: 0 auto;
 outline: solid black;
@@ -11,19 +41,31 @@ width: 600px;
   outline: solid black;
   height: 50px;
   width: 300px;
+  
+}
+.table1cell{
+  border-radius: 50px;
+}
+
+tr {
+  /* border-radius: 50px; */
+  /* padding: 50px; */
+
+
 }
 
 td {
   outline: solid black;
   height: 100px;
   width: 100px; 
+  /* border-radius: 50px; */
 }
 
 .player1color {
-  background-color: red !important;
+  background-color: red;
 }
 .player2color {
-  background-color: blue !important;
+  background-color: blue;
 }
 
 
@@ -51,19 +93,31 @@ button {
   height: 75px;
   width: 150px;
   margin: 0 auto;
+  border-radius: 50px;
+  outline: none;
 }
 
 #player1score {
   display: inline-block;
   float: left;
+  font-size: 30px;
 }
 
 #player2score {
   display: inline-block;
   float: right;
+  font-size: 30px;
 }
 
-.player1move {
+button:focus, button:active {
+  border: none;
+  box-shadow: none;
+
+}
+
+
+
+/* .player1move {
   background-color: aqua;
 }
 
@@ -109,4 +163,4 @@ button {
 
 .violetClass {
   background-color: violet;
-}
+} */

@@ -14,37 +14,37 @@ $(function () {
   var player1score = 0;
   var player2score = 0;
 
-  var player1Color = '';
-  var player2Color = '';
+  var player1Color = "Red";
+  var player2Color = "Blue";
   var player1 = 1;
   var player2 = 2;
   var turn;
   /*----- cached element references -----*/
 
   /*----- event listeners -----*/
-  $('table').on('click', 'td', click);
+  $('#gameboard').on('click', 'td', click);
   $('#resetboard').on('click', init);
   $('#reset').on('click', init2);
   $('#resetgame').on('click', clearScore);
-  $('.redClass').on('click', red);
-  $('.orangeClass').on('click', orange);
-  $('.yellowClass').on('click', yellow);
-  $('.yellowgreenClass').on('click', yellowgreen);
-  $('.greenClass').on('click', green);
-  $('.bluegreenClass').on('click', bluegreen);
-  $('.blueClass').on('click', blue);
-  $('.purpleClass').on('click', purple);
-  $('.pinkClass').on('click', pink);
-  $('.violetClass').on('click', violet);
+  // $('.redClass').on('click', red);
+  // $('.orangeClass').on('click', orange);
+  // $('.yellowClass').on('click', yellow);
+  // $('.yellowgreenClass').on('click', yellowgreen);
+  // $('.greenClass').on('click', green);
+  // $('.bluegreenClass').on('click', bluegreen);
+  // $('.blueClass').on('click', blue);
+  // $('.purpleClass').on('click', purple);
+  // $('.pinkClass').on('click', pink);
+  // $('.violetClassgi').on('click', violet);
 
 
   /*----- functions -----*/
   function init() {
-    $('td').removeClass('player1color');
-    $('td').removeClass('player2color');
-    $('.table1cell').css({ "background-color": "white" });
+    $('.table1cell').removeClass('player1color');
+    $('.table1cell').removeClass('player2color');
     turn = player1;
-    console.log(player1)
+    
+
     board = [
       [0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0],
@@ -76,9 +76,7 @@ $(function () {
         }
         
       }
-    
-    
-  };
+    };
 
 
   function switchTurn() {
@@ -98,9 +96,9 @@ $(function () {
       for (var j = 0; j < board[index].length; j++) {
         var column = board[index][j];
         if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('player1move');
+          $(`[data-row=${index}]>[data-col=${j}]`).addClass('player1color');
         } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('player2move');
+          $(`[data-row=${index}]>[data-col=${j}]`).addClass('player2color');
         }
       }
 
@@ -167,9 +165,8 @@ $(function () {
   }
 
   function init2() {
-    $('td').removeClass('player1color');
-    $('td').removeClass('player2color');
-    $('.table1cell').css({ "background-color": "white" });
+    $('.table1cell').removeClass('player1color');
+    $('.table1cell').removeClass('player2color');
     turn = player1;
     console.log(player1)
     board = [
@@ -183,173 +180,181 @@ $(function () {
     clearScore();
   };
   // color functions
-  
+// function green() {
+//   if (turn === player1){
+//     $('.player1color').attr({"background-color": "green"});
+//   } else {
+//     $('.player2color').attr({"background-color": "green"});
+//   }
+// };
 
-  function red() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('redClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('redClass');
-        }
-      }
+// $('.greenClass').on('click', green);
 
-    }
-    }
+  // function red() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('redClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('redClass');
+  //       }
+  //     }
 
-  function orange() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('orangeClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('orangeClass');
-        }
-      }
+  //   }
+  //   }
 
-    }
-    }
-  function yellow() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowClass');
-        }
-      }
+  // function orange() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('orangeClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('orangeClass');
+  //       }
+  //     }
 
-    }
-    }
-  function yellowgreen() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowgreenClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowgreenClass');
-        }
-      }
+  //   }
+  //   }
+  // function yellow() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowClass');
+  //       }
+  //     }
 
-    }
-    }
-  function green() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('greenClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('greenClass');
-        }
-      }
+  //   }
+  //   }
+  // function yellowgreen() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowgreenClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('yellowgreenClass');
+  //       }
+  //     }
 
-    }
-    }
+  //   }
+  //   }
+  // function green() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('greenClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('greenClass');
+  //       }
+  //     }
+
+  //   }
+  //   }
 
 
-  function bluegreen() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('bluegreenClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('bluegreenClass');
-        }
-      }
+  // function bluegreen() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('bluegreenClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('bluegreenClass');
+  //       }
+  //     }
 
-    }
-    }
+  //   }
+  //   }
 
-  function blue() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('blueClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('blueClass');
-        }
-      }
+  // function blue() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('blueClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('blueClass');
+  //       }
+  //     }
 
-    }
-    }
-  function purple() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('purpleClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('purpleClass');
-        }
-      }
+  //   }
+  //   }
+  // function purple() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('purpleClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('purpleClass');
+  //       }
+  //     }
 
-    }
-    }
+  //   }
+  //   }
 
-  function pink() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('pinkClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('pinkClass');
-        }
-      }
+  // function pink() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('pinkClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('pinkClass');
+  //       }
+  //     }
 
-    }
-    }
-  function violet() {
-    for (var index = 0; index < board.length; index++) {
-      var row = board[index];
-      for (var j = 0; j < board[index].length; j++) {
-        var column = board[index][j];
-        if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('violetClass');
-        } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2move');
-          $(`[data-row=${index}]>[data-col=${j}]`).addClass('violetClass');
-        }
-      }
+  //   }
+  //   }
+  // function violet() {
+  //   for (var index = 0; index < board.length; index++) {
+  //     var row = board[index];
+  //     for (var j = 0; j < board[index].length; j++) {
+  //       var column = board[index][j];
+  //       if (column === 1) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player1color');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('violetClass');
+  //       } else if (column === 2) {
+  //         $(`[data-row=${index}]>[data-col=${j}]`).removeClass('player2color');
+  //         $(`[data-row=${index}]>[data-col=${j}]`).addClass('violetClass');
+  //       }
+  //     }
 
-    }
-    }
+  //   }
+  //   }
     init2();
   });
 
