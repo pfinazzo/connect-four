@@ -14,8 +14,8 @@ $(function () {
   var player1score = 0;
   var player2score = 0;
 
-  var player1Color = "Red";
-  var player2Color = "Blue";
+  var player1Color = '';
+  var player2Color = '';
   var player1 = 1;
   var player2 = 2;
   var turn;
@@ -43,9 +43,9 @@ $(function () {
 
   /*----- functions -----*/
   function init() {
-    player1Color = "Red";
-    player2Color = "Blue";
-
+    $('.table1cell').css({"background-color": ""});
+   player1Color = "Red";
+   player2Color = "Blue";
     turn = player1;
     $('#turn2').text(null);
     $('#turn1').text('turn');
@@ -114,15 +114,16 @@ $(function () {
 
   function checkMatch(cell1, cell2, cell3, cell4) {
     if ((cell1 !== 0) && (cell1 === cell2) && (cell1 === cell3) && (cell1 === cell4)) {
-      init();
       if (cell1 === 1) {
         alert(`${player1Color} has won!`);
         player1score++;
         $('#score1').text(player1score);
+        init2();
       } else {
         alert(`${player2Color} has won!`);
         player2score++;
         $('#score2').text(player2score);
+        init2();
       }
     }
   };
@@ -187,11 +188,12 @@ $(function () {
   }
 
   function init2() {
+    $('.table1cell').css({"background-color": ""});
+
     player1Color = "Red";
     player2Color = "Blue";
     $('#turn2').text(null);
     $('#turn1').text('turn');
-    console.log(player1)
     board = [
       [0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0],
