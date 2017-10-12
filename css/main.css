@@ -65,11 +65,14 @@ width: 600px;
 }
 
 #colorTable {
-  margin: 0 auto;
-  margin-top: 10px;
   outline: solid black;
-  height: 50px;
-  width: 300px;
+  height: 100px;
+  width: 800px;
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 313px;
+  margin-right: 0 auto;
+
   
 }
 .table1cell{

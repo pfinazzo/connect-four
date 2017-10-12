@@ -61,6 +61,8 @@ $(function () {
     ];
   };
 
+
+
   function init2() {
     player1Color = "Red";
     player2Color = "Blue";
@@ -78,6 +80,7 @@ $(function () {
       [0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0]
     ];
+
     clearScore();
   };
 
@@ -88,14 +91,12 @@ $(function () {
     var row = cellTarget.parent().attr("data-row"); // event target's row
     row = parseInt(row, 10);
     column = parseInt(column, 10);
-    console.log(cellTarget, column, row)
     if (board[row][column] === 1 || board[row][column] === 2) {
       return;
     }
     for (var i = row; i <= board.length - 1; i++) {
       var currentRow = i;
       var nextRow = currentRow + 1;
-      console.log(nextRow);
       if ((board[nextRow] === undefined || board[nextRow][column] === 1 || board[nextRow][column] === 2)) {
         board[currentRow][column] = turn;
         return switchTurn();
@@ -112,7 +113,6 @@ $(function () {
     } else {
       turn = player1;
     }
-    console.log(board);
     update();
   }
 
@@ -132,7 +132,7 @@ $(function () {
       }
     }
     turn === player1 ? ($('#turn2').text(null) && $('#turn1').text('turn')) : ($('#turn1').text(null) && $('#turn2').text('turn'));
-    checkWinner(board);
+    checkTie(board);
   }
 
   function checkMatch(cell1, cell2, cell3, cell4) {
@@ -151,18 +151,25 @@ $(function () {
     }
   };
 
-  function checkTie() {
-    board.forEach(function (i) {
-      board[i].forEach(function (j) {
-        if (board[i][j] === 0) {
-          tie = false;
-        } else {
+  function checkTie(board) {
+for (var r = 5; r >=0; r--){
+  board[r].forEach(function(c) {
+        if (c !== 0) {
           tie = true;
+        } else {
+          tie = false;
         }
-      });
-    });
-
-    tie === true ? switchTurn : tieCount++ && alert('Tie Game!') && $('#tieGame').text(tieCount);
+});
+};
+    if (tie === true) {
+      alert('Tie Game!');
+      tieCount++;
+      $('#tieGame').text(tieCount);
+      init();
+    } else {
+      checkWinner(board);
+      // switchTurn();
+    }
   }
 
 
