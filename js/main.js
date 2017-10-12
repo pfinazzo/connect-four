@@ -44,9 +44,11 @@ $(function () {
 
   /*----- functions -----*/
   function init() {
+    player1Color = "Red";
+    player2Color = "Blue";
+    $('#turn1').css({"color" : player1Color})
+    $('#turn2').css({"color" : player2Color})
     $('.table1cell').css({"background-color": ""});
-   player1Color = "Red";
-   player2Color = "Blue";
     turn = player1;
     $('#turn2').text(null);
     $('#turn1').text('turn');
@@ -62,10 +64,12 @@ $(function () {
   };
 
   function init2() {
-    $('.table1cell').css({"background-color": ""});
-    turn = player1;
     player1Color = "Red";
     player2Color = "Blue";
+    $('#turn1').css({"color" : player1Color})
+    $('#turn2').css({"color" : player2Color})
+    $('.table1cell').css({"background-color": ""});
+    turn = player1;
     $('#turn2').text(null);
     $('#turn1').text('turn');
     board = [
@@ -122,11 +126,12 @@ $(function () {
         var column = board[index][j];
         if (column === 1) {
           $(`[data-row=${index}]>[data-col=${j}]`).css({"background-color" : player1Color});
+          $('#turn1').css({"color" : player1Color})
+          $('#turn2').css({"color" : player2Color})
         } else if (column === 2) {
           $(`[data-row=${index}]>[data-col=${j}]`).css({"background-color" : player2Color});
         }
       }
-
     }
     turn === player1 ? ($('#turn2').text(null) && $('#turn1').text('turn')) : ($('#turn1').text(null) && $('#turn2').text('turn'));
     checkWinner(board);
@@ -261,9 +266,9 @@ $(function () {
   function bluegreen() {
 
     if (turn === player1) {
-      player1Color = "Dark Cyan";
+      player1Color = "darkcyan";
     } else if (turn === player2) {
-      player2Color = "Dark Cyan";
+      player2Color = "darkcyan";
     } update();
   }
 

@@ -19,10 +19,8 @@ button {
   margin-top: 20px;
   font-size: 50px;
   float: left;
-  padding-right: 30px;
   text-align: left;
   min-width: 500px;
-  color: red;
 }
 #turn2 {
   margin-top: 20px;
@@ -30,7 +28,6 @@ button {
   float: right;
   text-align: right;
   min-width: 500px;
-  color: blue;
 }
 
 #colorPick{
