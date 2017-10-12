@@ -1,6 +1,4 @@
 $(function () {
-  /*----- constants -----*/
-
   /*----- app's state (variables) -----*/
   var board = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -12,6 +10,7 @@ $(function () {
   ];
 
   var player1score = 0;
+
   var player2score = 0;
 
   var player1Color = '';
@@ -44,13 +43,12 @@ $(function () {
 
   /*----- functions -----*/
   function init() {
-    $('#turn1').css({"color" : player1Color})
-    $('#turn2').css({"color" : player2Color})
-    $('.table1cell').css({"background-color": ""});
+    $('#turn1').css({ "color": player1Color })
+    $('#turn2').css({ "color": player2Color })
+    $('.table1cell').css({ "background-color": "" });
     turn = player1;
     $('#turn2').text(null);
     $('#turn1').text('turn');
-
     board = [
       [0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0],
@@ -60,15 +58,13 @@ $(function () {
       [0, 0, 0, 0, 0, 0, 0]
     ];
   };
-
-
 
   function init2() {
     player1Color = "Red";
     player2Color = "Blue";
-    $('#turn1').css({"color" : player1Color})
-    $('#turn2').css({"color" : player2Color})
-    $('.table1cell').css({"background-color": ""});
+    $('#turn1').css({ "color": player1Color })
+    $('#turn2').css({ "color": player2Color })
+    $('.table1cell').css({ "background-color": "" });
     turn = player1;
     $('#turn2').text(null);
     $('#turn1').text('turn');
@@ -80,10 +76,8 @@ $(function () {
       [0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0]
     ];
-
     clearScore();
   };
-
 
   function click(event) {
     var cellTarget = $(event.target); // event target's cell
@@ -102,10 +96,8 @@ $(function () {
         return switchTurn();
         var lastOpenRow = nextRow;
       }
-
     }
   };
-
 
   function switchTurn() {
     if (turn === player1) {
@@ -116,18 +108,17 @@ $(function () {
     update();
   }
 
-
   function update() {
     for (var index = 0; index < board.length; index++) {
       var row = board[index];
       for (var j = 0; j < board[index].length; j++) {
         var column = board[index][j];
         if (column === 1) {
-          $(`[data-row=${index}]>[data-col=${j}]`).css({"background-color" : player1Color});
-          $('#turn1').css({"color" : player1Color})
-          $('#turn2').css({"color" : player2Color})
+          $(`[data-row=${index}]>[data-col=${j}]`).css({ "background-color": player1Color });
+          $('#turn1').css({ "color": player1Color })
+          $('#turn2').css({ "color": player2Color })
         } else if (column === 2) {
-          $(`[data-row=${index}]>[data-col=${j}]`).css({"background-color" : player2Color});
+          $(`[data-row=${index}]>[data-col=${j}]`).css({ "background-color": player2Color });
         }
       }
     }
@@ -152,15 +143,15 @@ $(function () {
   };
 
   function checkTie(board) {
-for (var r = 5; r >=0; r--){
-  board[r].forEach(function(c) {
+    for (var r = 5; r >= 0; r--) {
+      board[r].forEach(function (c) {
         if (c !== 0) {
           tie = true;
         } else {
           tie = false;
         }
-});
-};
+      });
+    };
     if (tie === true) {
       alert('Tie Game!');
       tieCount++;
@@ -172,7 +163,6 @@ for (var r = 5; r >=0; r--){
     }
   }
 
-
   function checkWinner(board) {
     // Check down
     for (r = 0; r < 3; r++) {
@@ -180,26 +170,18 @@ for (var r = 5; r >=0; r--){
         checkMatch(board[r][c], board[r + 1][c], board[r + 2][c], board[r + 3][c]);
       }
     }
-
-
     // Check right
     for (r = 0; r < 6; r++) {
       for (c = 0; c < 4; c++) {
         checkMatch(board[r][c], board[r][c + 1], board[r][c + 2], board[r][c + 3]);
       }
     }
-
-
-
     // Check down-right
     for (r = 0; r < 3; r++) {
       for (c = 0; c < 4; c++) {
         checkMatch(board[r][c], board[r + 1][c + 1], board[r + 2][c + 2], board[r + 3][c + 3]);
       }
     }
-
-
-
     // Check down-left
     for (r = 3; r < 6; r++) {
       for (c = 0; c < 4; c++) {
@@ -217,13 +199,7 @@ for (var r = 5; r >=0; r--){
     $('#tieGame').text(tieCount);
   }
 
-  
-
-
-
   // color functions
-
-
 
   function red() {
     if (turn === player1) {
@@ -232,7 +208,6 @@ for (var r = 5; r >=0; r--){
       player2Color = "red";
     } update();
   }
-
 
   function orange() {
 
@@ -243,7 +218,6 @@ for (var r = 5; r >=0; r--){
     } update();
   }
 
-
   function yellow() {
 
     if (turn === player1) {
@@ -252,6 +226,7 @@ for (var r = 5; r >=0; r--){
       player2Color = "yellow";
     } update();
   }
+
   function yellowgreen() {
 
     if (turn === player1) {
@@ -260,6 +235,7 @@ for (var r = 5; r >=0; r--){
       player2Color = "yellowgreen";
     } update();
   }
+
   function green() {
 
     if (turn === player1) {
@@ -268,6 +244,7 @@ for (var r = 5; r >=0; r--){
       player2Color = "green";
     } update();
   }
+
   function bluegreen() {
 
     if (turn === player1) {
@@ -285,6 +262,7 @@ for (var r = 5; r >=0; r--){
       player2Color = "blue";
     } update();
   }
+
   function purple() {
 
     if (turn === player1) {
@@ -293,6 +271,7 @@ for (var r = 5; r >=0; r--){
       player2Color = "purple";
     } update();
   }
+
   function pink() {
 
     if (turn === player1) {
@@ -301,6 +280,7 @@ for (var r = 5; r >=0; r--){
       player2Color = "pink";
     } update();
   }
+
   function violet() {
 
     if (turn === player1) {
@@ -309,7 +289,6 @@ for (var r = 5; r >=0; r--){
       player2Color = "violet";
     } update();
   }
-
   init2();
 });
 

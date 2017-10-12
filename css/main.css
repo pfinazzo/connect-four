@@ -50,12 +50,10 @@ header {
   font-size: 50px;
 }
 
-
 #tieScore {
   text-align: center;
   font-size: 30px;
 }
-
 
 #gameboard {
 margin: 0 auto;
@@ -71,15 +69,12 @@ width: 600px;
   text-align: center;
   margin-top: 50px;
   margin-left: 313px;
-  margin-right: 0 auto;
-
-  
+  margin-right: 0 auto; 
 }
+
 .table1cell{
   border-radius: 50px;
 }
-
-
 
 td {
   outline: solid black;
@@ -87,35 +82,31 @@ td {
   width: 100px; 
 }
 
-/* .player1color {
-  background-color: red;
-}
-.player2color {
-  background-color: blue;
-} */
 #tieGame {
   text-align: center;
   font-size: 30px;
 }
+
 #resetboard {
   margin: 0 auto;
   padding-left: 240px;
   padding-top: 20px;
   display: inline-block;
 }
+
 #resetgame {
   margin: 0 auto;
   padding-left: 240px;
   padding-top: 20px;
   display: inline-block;
 }
+
 #reset {
   margin: 0 auto;
   padding-left: 240px;
   padding-top: 20px;
   display: inline-block;
 }
-
 
 button {
   height: 75px;
