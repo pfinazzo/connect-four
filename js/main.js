@@ -21,6 +21,7 @@ $(function () {
   var turn;
   var tie;
   var tieCount = 0;
+
   /*----- cached element references -----*/
 
   /*----- event listeners -----*/
@@ -60,6 +61,24 @@ $(function () {
     ];
   };
 
+  function init2() {
+    $('.table1cell').css({"background-color": ""});
+    turn = player1;
+    player1Color = "Red";
+    player2Color = "Blue";
+    $('#turn2').text(null);
+    $('#turn1').text('turn');
+    board = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0]
+    ];
+    clearScore();
+  };
+
 
   function click(event) {
     var cellTarget = $(event.target); // event target's cell
@@ -67,6 +86,7 @@ $(function () {
     var row = cellTarget.parent().attr("data-row"); // event target's row
     row = parseInt(row, 10);
     column = parseInt(column, 10);
+    console.log(cellTarget, column, row)
     if (board[row][column] === 1 || board[row][column] === 2) {
       return;
     }
@@ -118,12 +138,12 @@ $(function () {
         alert(`${player1Color} has won!`);
         player1score++;
         $('#score1').text(player1score);
-        init2();
+        init();
       } else {
         alert(`${player2Color} has won!`);
         player2score++;
         $('#score2').text(player2score);
-        init2();
+        init();
       }
     }
   };
@@ -187,23 +207,7 @@ $(function () {
     $('#tieGame').text(tieCount);
   }
 
-  function init2() {
-    $('.table1cell').css({"background-color": ""});
-
-    player1Color = "Red";
-    player2Color = "Blue";
-    $('#turn2').text(null);
-    $('#turn1').text('turn');
-    board = [
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
-    ];
-    clearScore();
-  };
+  
 
 
 
@@ -295,8 +299,6 @@ $(function () {
       player2Color = "violet";
     } update();
   }
-
-
 
   init2();
 });
