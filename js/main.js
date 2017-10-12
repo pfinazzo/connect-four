@@ -44,8 +44,6 @@ $(function () {
 
   /*----- functions -----*/
   function init() {
-    player1Color = "Red";
-    player2Color = "Blue";
     $('#turn1').css({"color" : player1Color})
     $('#turn2').css({"color" : player2Color})
     $('.table1cell').css({"background-color": ""});
