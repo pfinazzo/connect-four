@@ -31,7 +31,7 @@ $(function () {
   // color event listeners
   $('.redClass').on('click', red);
   $('.orangeClass').on('click', orange);
-  $('.yellowClass').on('click', yellow);
+  $('.goldClass').on('click', gold);
   $('.yellowgreenClass').on('click', yellowgreen);
   $('.greenClass').on('click', green);
   $('.bluegreenClass').on('click', bluegreen);
@@ -214,12 +214,12 @@ $(function () {
     } update();
   }
 
-  function yellow() {
+  function gold() {
 
     if (turn === player1) {
-      player1Color = "yellow";
+      player1Color = "gold";
     } else if (turn === player2) {
-      player2Color = "yellow";
+      player2Color = "gold";
     } update();
   }
 
