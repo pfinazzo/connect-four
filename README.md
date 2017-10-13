@@ -47,5 +47,4 @@ I might have to use some async timing to make the sounds happen with their corre
 
  Creating this game has been a great learning experience for me.
  
- 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/TcCcQ"><a href="//imgur.com/TcCcQ"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<blockquote class="imgur-embed-pub" lang="en" data-id="PcrUvxi"><a href="//imgur.com/PcrUvxi">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
