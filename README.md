@@ -48,8 +48,8 @@ I might have to use some async timing to make the sounds happen with their corre
  Creating this game has been a great learning experience for me.
  
  
- ![alt tag](https://imgur.com/PcrUvxi)
+<img src="https://imgur.com/PcrUvxi">
  
- ![alt tag](https://imgur.com/pnOzhDH)
+ <img src="https://imgur.com/pnOzhDH">
  
- ![alt tag](https://imgur.com/O2MmPrF)
+ <img src="https://imgur.com/O2MmPrF">
