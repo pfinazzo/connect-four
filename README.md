@@ -47,4 +47,10 @@ I might have to use some async timing to make the sounds happen with their corre
 
  Creating this game has been a great learning experience for me.
  
-[Imgur](https://i.imgur.com/PcrUvxi.png)
+[![Image Alt Text]](https://imgur.com/PcrUvxi)
+
+[![Image Alt Text]](https://imgur.com/pnOzhDH)
+
+[![Image Alt Text]](https://imgur.com/O2MmPrF)
+
+
