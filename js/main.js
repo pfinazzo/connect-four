@@ -126,15 +126,26 @@ $(function () {
     checkTie(board);
   }
 
+  function popUp(cell1) {
+ if (cell1 === 1) {
+  $('.dialog-msg').text(`${player1Color} has won!`);
+  $('#dialog').show('fold', 1000);
+ } else {
+  $('.dialog-msg').text(`${player2Color} has won!`);
+  $('#dialog').show('fold', 1000);
+ }
+  }
+
   function checkMatch(cell1, cell2, cell3, cell4) {
     if ((cell1 !== 0) && (cell1 === cell2) && (cell1 === cell3) && (cell1 === cell4)) {
       if (cell1 === 1) {
-        alert(`${player1Color} has won!`);
+        // alert(`${player1Color} has won!`);
+        popUp(cell1);
         player1score++;
         $('#score1').text(player1score);
         init();
-      } else {
-        alert(`${player2Color} has won!`);
+      }  else { 
+        popUp(cell1);
         player2score++;
         $('#score2').text(player2score);
         init();
@@ -153,7 +164,8 @@ $(function () {
       });
     };
     if (tie === true) {
-      alert('Tie Game!');
+      $('.dialog-msg').text('Tie Game!');
+      $('#dialog').show('fold', 1000);
       tieCount++;
       $('#tieGame').text(tieCount);
       init();
