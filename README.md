@@ -33,6 +33,7 @@ Some of these things would be
 2. I would like to add outlines to the color table cells that have been selected. I would like as much visual representation of colors as possible without it being overbearing.
 3. I would like to add sound as well. I would like there to be a sound for selecting a color, dropping a token and when the turn switches.
 I might have to use some async timing to make the sounds happen with their corresponding lines of code. I imagine that otherwise, the code will run faster than the sounds and they will have finished by the time the sound is even half way through. Perhaps I will use the setTimeout function. 
+4. This page desperately needs some responsive design. It only looks nice when the window is fully opened all the way.
 
 
  Creating this game has been a great learning experience for me.
