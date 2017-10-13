@@ -6,6 +6,7 @@ body {
 button {
   font-family: 'Gloria Hallelujah', sans-serif;
 }
+
 #score1 {
   font-size: 50px;
   display: inline-block;
@@ -31,6 +32,7 @@ button {
   text-align: left;
   min-width: 500px;
 }
+
 #turn2 {
   margin-top: 20px;
   font-size: 50px;
