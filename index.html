@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,107 +11,109 @@
   <link href="css/main.css" rel="stylesheet">
   <title>Document</title>
 </head>
+
 <body>
   <div>
     <div id="turn1"></div>
     <div id="turn2"></div>
   </div>
-<header>
-  CONNECT FOUR!
-</header>
+  <header>
+    CONNECT FOUR!
+  </header>
   <main>
-    <div id = "player1score">Player 1 score:</div>
-        <div id="score1"></div>
+    <div id="player1score">Player 1 score:</div>
+    <div id="score1"></div>
     <div id="player2score">Player 2 score:</div>
-           <div id="score2"></div>  
-  <table id="gameboard">
-    <tr data-row="0">
-      <td data-col="0" class = "table1cell"></td>
-      <td data-col="1" class = "table1cell"></td>
-      <td data-col="2" class = "table1cell"></td>
-      <td data-col="3" class = "table1cell"></td>
-      <td data-col="4" class = "table1cell"></td>
-      <td data-col="5" class = "table1cell"></td>
-      <td data-col="6" class = "table1cell"></td>
-    </tr>
-    <tr data-row="1">
-      <td data-col="0" class = "table1cell"></td>
-      <td data-col="1" class = "table1cell"></td>
-      <td data-col="2" class = "table1cell"></td>
-      <td data-col="3" class = "table1cell"></td>
-      <td data-col="4" class = "table1cell"></td>
-      <td data-col="5" class = "table1cell"></td>
-      <td data-col="6" class = "table1cell"></td>
-    </tr>
-    <tr data-row="2">
-      <td data-col="0" class = "table1cell"></td>
-      <td data-col="1" class = "table1cell"></td>
-      <td data-col="2" class = "table1cell"></td>
-      <td data-col="3" class = "table1cell"></td>
-      <td data-col="4" class = "table1cell"></td>
-      <td data-col="5" class = "table1cell"></td>
-      <td data-col="6" class = "table1cell"></td>
-    </tr>
-    <tr data-row="3">
-      <td data-col="0" class = "table1cell"></td>
-      <td data-col="1" class = "table1cell"></td>
-      <td data-col="2" class = "table1cell"></td>
-      <td data-col="3" class = "table1cell"></td>
-      <td data-col="4" class = "table1cell"></td>
-      <td data-col="5" class = "table1cell"></td>
-      <td data-col="6" class = "table1cell"></td>
-    </tr>
-    <tr data-row="4">
-      <td data-col="0" class = "table1cell"></td>
-      <td data-col="1" class = "table1cell"></td>
-      <td data-col="2" class = "table1cell"></td>
-      <td data-col="3" class = "table1cell"></td>
-      <td data-col="4" class = "table1cell"></td>
-      <td data-col="5" class = "table1cell"></td>
-      <td data-col="6" class = "table1cell"></td>
-    </tr>
-    <tr data-row="5">
-      <td data-col="0" class = "table1cell"></td>
-      <td data-col="1" class = "table1cell"></td>
-      <td data-col="2" class = "table1cell"></td>
-      <td data-col="3" class = "table1cell"></td>
-      <td data-col="4" class = "table1cell"></td>
-      <td data-col="5" class = "table1cell"></td>
-      <td data-col="6" class = "table1cell"></td>
-    </tr>
-  </table>
-  <div id="tieScore">Tie Game:</div>
-  <div id="tieGame"></div>
-</main>
-</div>
-  </body>
-  <div id="resetboard">
-  <button>Reset Board</button>
-  </div>
-  <div id="reset">
-      <button>Reset Board and Score</button>
-  </div>
-  <div id="resetgame">
-      <button>Reset Score</button>
-  </div>
-  <div>
-    <table id="colorTable">
-      <tr>
-        <td class="redClass"></td>
-        <td class="orangeClass"></td>
-        <td class="yellowClass"></td>
-        <td class="yellowgreenClass"></td>
-        <td class="greenClass"></td>  
+    <div id="score2"></div>
+    <table id="gameboard">
+      <tr data-row="0">
+        <td data-col="0" class="table1cell"></td>
+        <td data-col="1" class="table1cell"></td>
+        <td data-col="2" class="table1cell"></td>
+        <td data-col="3" class="table1cell"></td>
+        <td data-col="4" class="table1cell"></td>
+        <td data-col="5" class="table1cell"></td>
+        <td data-col="6" class="table1cell"></td>
       </tr>
-      <tr>
-        <td class="bluegreenClass"></td>
-        <td class="blueClass"></td>
-        <td class="purpleClass"></td>
-        <td class="pinkClass"></td>
-        <td class="violetClass"></td>
+      <tr data-row="1">
+        <td data-col="0" class="table1cell"></td>
+        <td data-col="1" class="table1cell"></td>
+        <td data-col="2" class="table1cell"></td>
+        <td data-col="3" class="table1cell"></td>
+        <td data-col="4" class="table1cell"></td>
+        <td data-col="5" class="table1cell"></td>
+        <td data-col="6" class="table1cell"></td>
+      </tr>
+      <tr data-row="2">
+        <td data-col="0" class="table1cell"></td>
+        <td data-col="1" class="table1cell"></td>
+        <td data-col="2" class="table1cell"></td>
+        <td data-col="3" class="table1cell"></td>
+        <td data-col="4" class="table1cell"></td>
+        <td data-col="5" class="table1cell"></td>
+        <td data-col="6" class="table1cell"></td>
+      </tr>
+      <tr data-row="3">
+        <td data-col="0" class="table1cell"></td>
+        <td data-col="1" class="table1cell"></td>
+        <td data-col="2" class="table1cell"></td>
+        <td data-col="3" class="table1cell"></td>
+        <td data-col="4" class="table1cell"></td>
+        <td data-col="5" class="table1cell"></td>
+        <td data-col="6" class="table1cell"></td>
+      </tr>
+      <tr data-row="4">
+        <td data-col="0" class="table1cell"></td>
+        <td data-col="1" class="table1cell"></td>
+        <td data-col="2" class="table1cell"></td>
+        <td data-col="3" class="table1cell"></td>
+        <td data-col="4" class="table1cell"></td>
+        <td data-col="5" class="table1cell"></td>
+        <td data-col="6" class="table1cell"></td>
+      </tr>
+      <tr data-row="5">
+        <td data-col="0" class="table1cell"></td>
+        <td data-col="1" class="table1cell"></td>
+        <td data-col="2" class="table1cell"></td>
+        <td data-col="3" class="table1cell"></td>
+        <td data-col="4" class="table1cell"></td>
+        <td data-col="5" class="table1cell"></td>
+        <td data-col="6" class="table1cell"></td>
       </tr>
     </table>
-  </div> 
+    <div id="tieScore">Tie Game:</div>
+    <div id="tieGame"></div>
+  </main>
+  </div>
+</body>
+<div id="resetboard">
+  <button>Reset Board</button>
+</div>
+<div id="reset">
+  <button>Reset Board and Score</button>
+</div>
+<div id="resetgame">
+  <button>Reset Score</button>
+</div>
+<div>
+  <table id="colorTable">
+    <tr>
+      <td class="redClass"></td>
+      <td class="orangeClass"></td>
+      <td class="yellowClass"></td>
+      <td class="yellowgreenClass"></td>
+      <td class="greenClass"></td>
+    </tr>
+    <tr>
+      <td class="bluegreenClass"></td>
+      <td class="blueClass"></td>
+      <td class="purpleClass"></td>
+      <td class="pinkClass"></td>
+      <td class="violetClass"></td>
+    </tr>
+  </table>
+</div>
 <h1 id="colorPick">Pick a Color</h1>
 </body>
+
 </html>
