@@ -98,6 +98,8 @@ $(function () {
   }
 
   function update() {
+    $("#turn1").css({ "color": player1Color});
+    $("#turn2").css({ "color": player2Color});
     $("#player1score").css({ "color" : player1Color});
     $("#player2score").css({ "color" : player2Color});
     for (var index = 0; index < board.length; index++) {
@@ -106,8 +108,6 @@ $(function () {
         var column = board[index][j];
         if (column === 1) {
           $(`[data-row=${index}]>[data-col=${j}]`).css({ "background-color": player1Color });
-          $('#turn1').css({ "color": player1Color })
-          $('#turn2').css({ "color": player2Color })
         } else if (column === 2) {
           $(`[data-row=${index}]>[data-col=${j}]`).css({ "background-color": player2Color });
         }
