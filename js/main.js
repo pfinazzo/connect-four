@@ -34,7 +34,7 @@ $(function () {
   $('.goldClass').on('click', gold);
   $('.yellowgreenClass').on('click', yellowgreen);
   $('.greenClass').on('click', green);
-  $('.bluegreenClass').on('click', bluegreen);
+  $('.darkcyanClass').on('click', darkcyan);
   $('.blueClass').on('click', blue);
   $('.purpleClass').on('click', purple);
   $('.pinkClass').on('click', pink);
@@ -43,12 +43,12 @@ $(function () {
 
   /*----- functions -----*/
   function init() {
-    $('#turn1').css({ "color": player1Color })
-    $('#turn2').css({ "color": player2Color })
-    $('.table1cell').css({ "background-color": "" });
+    $("#player1score").css({ "color" : player1Color});
+    $("#player2score").css({ "color" : player2Color});
+    $(".table1cell").css({ "background-color": "" });
     turn = player1;
-    $('#turn2').text(null);
-    $('#turn1').text('turn');
+    $("#turn2").text(null);
+    $("#turn1").text("turn");
     board = [
       [0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0],
@@ -62,20 +62,9 @@ $(function () {
   function init2() {
     player1Color = "red";
     player2Color = "blue";
-    $('#turn1').css({ "color": player1Color })
-    $('#turn2').css({ "color": player2Color })
-    $('.table1cell').css({ "background-color": "" });
-    turn = player1;
-    $('#turn2').text(null);
-    $('#turn1').text('turn');
-    board = [
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
-    ];
+    $("#turn1").css({ "color": player1Color });
+    $("#turn2").css({ "color": player2Color });
+    init();
     clearScore();
   };
 
@@ -109,6 +98,8 @@ $(function () {
   }
 
   function update() {
+    $("#player1score").css({ "color" : player1Color});
+    $("#player2score").css({ "color" : player2Color});
     for (var index = 0; index < board.length; index++) {
       var row = board[index];
       for (var j = 0; j < board[index].length; j++) {
@@ -260,7 +251,7 @@ $(function () {
     } update();
   }
 
-  function bluegreen() {
+  function darkcyan() {
     if (turn === player1) {
       if (player2Color !== "darkcyan") {
         player1Color = "darkcyan";
@@ -321,4 +312,3 @@ $(function () {
   }
   init2();
 });
-
