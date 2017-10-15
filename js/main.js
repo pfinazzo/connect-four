@@ -20,49 +20,50 @@ $(function () {
   var turn;
   var tie;
   var tieCount = 0;
+  var color;
 
   /*----- cached element references -----*/
   var $gameboard = $("#gameboard");
   var $resetBoard = $("#resetboard");
   var $reset = $("#reset");
   var $resetGame = $("#resetgame");
-  var $red = $('.redClass');
-  var $orange = $('.orangeClass');
-  var $gold = $('.goldClass');
-  var $yellowgreen = $('.yellowgreenClass');
-  var $green = $('.greenClass');
-  var $darkcyan = $('.darkcyanClass');
-  var $blue = $('.blueClass');
-  var $purple = $('.purpleClass');
-  var $pink = $('.pinkClass');
-  var $violet = $('.violetClass');
+  var $red = $(".redClass");
+  var $orange = $(".orangeClass");
+  var $gold = $(".goldClass");
+  var $yellowgreen = $(".yellowgreenClass");
+  var $green = $(".greenClass");
+  var $darkcyan = $(".darkcyanClass");
+  var $blue = $(".blueClass");
+  var $purple = $(".purpleClass");
+  var $pink = $(".pinkClass");
+  var $violet = $(".violetClass");
 
   var $player1score = $("#player1score");
   var $player2score = $("#player2score");
   var $turn1 = $("#turn1");
   var $turn2 = $("#turn2");
-  var $score1 = $('#score1');
-  var $score2 = $('#score2');
-  var $tieGame = $('#tieGame');
+  var $score1 = $("#score1");
+  var $score2 = $("#score2");
+  var $tieGame = $("#tieGame");
   var $table1Cell = $(".table1cell");
 
 
   /*----- event listeners -----*/
-  $gameboard.on('click', 'td', click);
-  $resetBoard.on('click', init);
-  $reset.on('click', init2);
-  $resetGame.on('click', clearScore);
+  $gameboard.on("click", "td", click);
+  $resetBoard.on("click", init);
+  $reset.on("click", init2);
+  $resetGame.on("click", clearScore);
   // color event listeners
-  $red.on('click', red);
-  $orange.on('click', orange);
-  $gold.on('click', gold);
-  $yellowgreen.on('click', yellowgreen);
-  $green.on('click', green);
-  $darkcyan.on('click', darkcyan);
-  $blue.on('click', blue);
-  $purple.on('click', purple);
-  $pink.on('click', pink);
-  $violet.on('click', violet);
+  $red.on("click", red);
+  $orange.on("click", orange);
+  $gold.on("click", gold);
+  $yellowgreen.on("click", yellowgreen);
+  $green.on("click", green);
+  $darkcyan.on("click", darkcyan);
+  $blue.on("click", blue);
+  $purple.on("click", purple);
+  $pink.on("click", pink);
+  $violet.on("click", violet);
 
 
   /*----- functions -----*/
@@ -70,7 +71,6 @@ $(function () {
     $player1score.css({ "color" : player1Color});
     $player2score.css({ "color" : player2Color});
     $table1Cell.css({ "background-color": "" });
-    turn = player1;
     $turn2.text(null);
     $turn1.text("turn");
     board = [
@@ -83,10 +83,13 @@ $(function () {
     ];
   };
 
+  function init1() {
+    init();
+    turn = player1;
+  };
+
   function initWin() {
-    $player1score.css({ "color" : player1Color});
-    $player2score.css({ "color" : player2Color});
-    $table1Cell.css({ "background-color": "" });  
+  init();
     if (turn === player1) {
       $turn2.text(null);
       $turn1.text("turn");
@@ -95,14 +98,6 @@ $(function () {
       $turn2.text("turn");
     }
     
-    board = [
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
-    ];
   }
 
   function init2() {
@@ -159,7 +154,7 @@ $(function () {
         }
       }
     }
-    turn === player1 ? ($turn2.text(null) && $turn1.text('turn')) : ($turn1.text(null) && $turn2.text('turn'));
+    turn === player1 ? ($turn2.text(null) && $turn1.text("turn")) : ($turn1.text(null) && $turn2.text("turn"));
     checkTie(board);
   }
 
@@ -192,7 +187,7 @@ $(function () {
     if (tie === true) {
       tieCount++;
       $tieGame.text(tieCount);
-      init();
+      init1();
     } else {
       checkWinner(board);
     }
