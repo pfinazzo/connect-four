@@ -22,33 +22,57 @@ $(function () {
   var tieCount = 0;
 
   /*----- cached element references -----*/
+  var $gameboard = $("#gameboard");
+  var $resetBoard = $("#resetboard");
+  var $reset = $("#reset");
+  var $resetGame = $("#resetgame");
+  var $red = $('.redClass');
+  var $orange = $('.orangeClass');
+  var $gold = $('.goldClass');
+  var $yellowgreen = $('.yellowgreenClass');
+  var $green = $('.greenClass');
+  var $darkcyan = $('.darkcyanClass');
+  var $blue = $('.blueClass');
+  var $purple = $('.purpleClass');
+  var $pink = $('.pinkClass');
+  var $violet = $('.violetClass');
+
+  var $player1score = $("#player1score");
+  var $player2score = $("#player2score");
+  var $turn1 = $("#turn1");
+  var $turn2 = $("#turn2");
+  var $score1 = $('#score1');
+  var $score2 = $('#score2');
+  var $tieGame = $('#tieGame');
+  var $table1Cell = $(".table1cell");
+
 
   /*----- event listeners -----*/
-  $('#gameboard').on('click', 'td', click);
-  $('#resetboard').on('click', init);
-  $('#reset').on('click', init2);
-  $('#resetgame').on('click', clearScore);
+  $gameboard.on('click', 'td', click);
+  $resetBoard.on('click', init);
+  $reset.on('click', init2);
+  $resetGame.on('click', clearScore);
   // color event listeners
-  $('.redClass').on('click', red);
-  $('.orangeClass').on('click', orange);
-  $('.goldClass').on('click', gold);
-  $('.yellowgreenClass').on('click', yellowgreen);
-  $('.greenClass').on('click', green);
-  $('.darkcyanClass').on('click', darkcyan);
-  $('.blueClass').on('click', blue);
-  $('.purpleClass').on('click', purple);
-  $('.pinkClass').on('click', pink);
-  $('.violetClass').on('click', violet);
+  $red.on('click', red);
+  $orange.on('click', orange);
+  $gold.on('click', gold);
+  $yellowgreen.on('click', yellowgreen);
+  $green.on('click', green);
+  $darkcyan.on('click', darkcyan);
+  $blue.on('click', blue);
+  $purple.on('click', purple);
+  $pink.on('click', pink);
+  $violet.on('click', violet);
 
 
   /*----- functions -----*/
   function init() {
-    $("#player1score").css({ "color" : player1Color});
-    $("#player2score").css({ "color" : player2Color});
-    $(".table1cell").css({ "background-color": "" });
+    $player1score.css({ "color" : player1Color});
+    $player2score.css({ "color" : player2Color});
+    $table1Cell.css({ "background-color": "" });
     turn = player1;
-    $("#turn2").text(null);
-    $("#turn1").text("turn");
+    $turn2.text(null);
+    $turn1.text("turn");
     board = [
       [0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0],
@@ -59,11 +83,33 @@ $(function () {
     ];
   };
 
+  function initWin() {
+    $player1score.css({ "color" : player1Color});
+    $player2score.css({ "color" : player2Color});
+    $table1Cell.css({ "background-color": "" });  
+    if (turn === player1) {
+      $turn2.text(null);
+      $turn1.text("turn");
+    } else if (turn === player2) {
+      $turn1.text(null);
+      $turn2.text("turn");
+    }
+    
+    board = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0]
+    ];
+  }
+
   function init2() {
     player1Color = "red";
     player2Color = "blue";
-    $("#turn1").css({ "color": player1Color });
-    $("#turn2").css({ "color": player2Color });
+    $turn1.css({ "color": player1Color });
+    $turn2.css({ "color": player2Color });
     init();
     clearScore();
   };
@@ -98,10 +144,10 @@ $(function () {
   }
 
   function update() {
-    $("#turn1").css({ "color": player1Color});
-    $("#turn2").css({ "color": player2Color});
-    $("#player1score").css({ "color" : player1Color});
-    $("#player2score").css({ "color" : player2Color});
+    $turn1.css({ "color": player1Color});
+    $turn2.css({ "color": player2Color});
+    $player1score.css({ "color" : player1Color});
+    $player2score.css({ "color" : player2Color});
     for (var index = 0; index < board.length; index++) {
       var row = board[index];
       for (var j = 0; j < board[index].length; j++) {
@@ -113,20 +159,22 @@ $(function () {
         }
       }
     }
-    turn === player1 ? ($('#turn2').text(null) && $('#turn1').text('turn')) : ($('#turn1').text(null) && $('#turn2').text('turn'));
+    turn === player1 ? ($turn2.text(null) && $turn1.text('turn')) : ($turn1.text(null) && $turn2.text('turn'));
     checkTie(board);
   }
 
   function checkMatch(cell1, cell2, cell3, cell4) {
     if ((cell1 !== 0) && (cell1 === cell2) && (cell1 === cell3) && (cell1 === cell4)) {
       if (cell1 === 1) {
+        turn = player1;
         player1score++;
-        $('#score1').text(player1score);
-        init();
+        $score1.text(player1score);
+        initWin();
       } else {
+        turn = player2;
         player2score++;
-        $('#score2').text(player2score);
-        init();
+        $score2.text(player2score);
+        initWin();
       }
     }
   };
@@ -143,7 +191,7 @@ $(function () {
     };
     if (tie === true) {
       tieCount++;
-      $('#tieGame').text(tieCount);
+      $tieGame.text(tieCount);
       init();
     } else {
       checkWinner(board);
@@ -181,9 +229,9 @@ $(function () {
     tieCount = 0;
     player1score = 0;
     player2score = 0;
-    $('#score1').text(player1score);
-    $('#score2').text(player2score);
-    $('#tieGame').text(tieCount);
+    $score1.text(player1score);
+    $score2.text(player2score);
+    $tieGame.text(tieCount);
   }
 
   // color functions
