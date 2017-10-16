@@ -20,7 +20,6 @@ $(function () {
   var turn;
   var tie;
   var tieCount = 0;
-  var color;
 
   /*----- cached element references -----*/
   var $gameboard = $("#gameboard");
@@ -68,8 +67,8 @@ $(function () {
 
   /*----- functions -----*/
   function init() {
-    $player1score.css({ "color" : player1Color});
-    $player2score.css({ "color" : player2Color});
+    $player1score.css({ "color": player1Color });
+    $player2score.css({ "color": player2Color });
     $table1Cell.css({ "background-color": "" });
     $turn2.text(null);
     $turn1.text("turn");
@@ -89,7 +88,7 @@ $(function () {
   };
 
   function initWin() {
-  init();
+    init();
     if (turn === player1) {
       $turn2.text(null);
       $turn1.text("turn");
@@ -97,7 +96,7 @@ $(function () {
       $turn1.text(null);
       $turn2.text("turn");
     }
-    
+
   }
 
   function init2() {
@@ -139,10 +138,10 @@ $(function () {
   }
 
   function update() {
-    $turn1.css({ "color": player1Color});
-    $turn2.css({ "color": player2Color});
-    $player1score.css({ "color" : player1Color});
-    $player2score.css({ "color" : player2Color});
+    $turn1.css({ "color": player1Color });
+    $turn2.css({ "color": player2Color });
+    $player1score.css({ "color": player1Color });
+    $player2score.css({ "color": player2Color });
     for (var index = 0; index < board.length; index++) {
       var row = board[index];
       for (var j = 0; j < board[index].length; j++) {
@@ -235,11 +234,11 @@ $(function () {
     if (turn === player1) {
       if (player2Color !== "red") {
         player1Color = "red";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "red") {
         player2Color = "red";
-      } 
+      }
     } update();
   }
 
@@ -248,25 +247,25 @@ $(function () {
     if (turn === player1) {
       if (player2Color !== "orange") {
         player1Color = "orange";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "orange") {
         player2Color = "orange";
-      } 
+      }
     } update();
   }
-    
-  
+
+
 
   function gold() {
     if (turn === player1) {
       if (player2Color !== "gold") {
         player1Color = "gold";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "gold") {
         player2Color = "gold";
-      } 
+      }
     } update();
   }
 
@@ -274,11 +273,11 @@ $(function () {
     if (turn === player1) {
       if (player2Color !== "yellowgreen") {
         player1Color = "yellowgreen";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "yellowgreen") {
         player2Color = "yellowgreen";
-      } 
+      }
     } update();
   }
 
@@ -286,11 +285,11 @@ $(function () {
     if (turn === player1) {
       if (player2Color !== "green") {
         player1Color = "green";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "green") {
         player2Color = "green";
-      } 
+      }
     } update();
   }
 
@@ -298,11 +297,11 @@ $(function () {
     if (turn === player1) {
       if (player2Color !== "darkcyan") {
         player1Color = "darkcyan";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "darkcyan") {
         player2Color = "darkcyan";
-      } 
+      }
     } update();
   }
 
@@ -310,11 +309,11 @@ $(function () {
     if (turn === player1) {
       if (player2Color !== "blue") {
         player1Color = "blue";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "blue") {
         player2Color = "blue";
-      } 
+      }
     } update();
   }
 
@@ -322,11 +321,11 @@ $(function () {
     if (turn === player1) {
       if (player2Color !== "purple") {
         player1Color = "purple";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "purple") {
         player2Color = "purple";
-      } 
+      }
     } update();
   }
 
@@ -334,11 +333,11 @@ $(function () {
     if (turn === player1) {
       if (player2Color !== "pink") {
         player1Color = "pink";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "pink") {
         player2Color = "pink";
-      } 
+      }
     } update();
   }
 
@@ -346,11 +345,11 @@ $(function () {
     if (turn === player1) {
       if (player2Color !== "violet") {
         player1Color = "violet";
-      } 
+      }
     } else if (turn === player2) {
       if (player1Color !== "violet") {
         player2Color = "violet";
-      } 
+      }
     } update();
   }
   init2();
