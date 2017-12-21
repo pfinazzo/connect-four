@@ -133,7 +133,10 @@ button {
 button:focus, button:active {
   border: none;
   box-shadow: none;
+}
 
+.center {
+  text-align: center;
 }
 
 .redClass {

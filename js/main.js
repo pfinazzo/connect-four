@@ -67,6 +67,8 @@ $(function () {
 
   /*----- functions -----*/
   function init() {
+    player1Color = "red";
+    player2Color = "blue";
     $player1score.css({ "color": player1Color });
     $player2score.css({ "color": player2Color });
     $table1Cell.css({ "background-color": "" });
@@ -89,22 +91,17 @@ $(function () {
 
   function initWin() {
     init();
-    if (turn === player1) {
-      $turn2.text(null);
-      $turn1.text("turn");
-    } else if (turn === player2) {
-      $turn1.text(null);
-      $turn2.text("turn");
+    turn === player1 ? $turn2.text(null) && $turn1.text("turn") : $turn1.text(null) && $turn2.text("turn");
     }
 
-  }
 
   function init2() {
+    init();
+    turn = player1;
     player1Color = "red";
     player2Color = "blue";
     $turn1.css({ "color": player1Color });
     $turn2.css({ "color": player2Color });
-    init();
     clearScore();
   };
 
@@ -129,11 +126,7 @@ $(function () {
   };
 
   function switchTurn() {
-    if (turn === player1) {
-      turn = player2;
-    } else {
-      turn = player1;
-    }
+    turn === player1 ? turn = player2 : turn = player1;
     update();
   }
 
@@ -176,13 +169,9 @@ $(function () {
   function checkTie(board) {
     for (var r = 5; r >= 0; r--) {
       board[r].forEach(function (c) {
-        if (c !== 0 && (board[r][c] === 1 || board[r][c] === 2)) {
-          tie = true;
-        } else {
-          tie = false;
-        }
-      });
-    };
+        c !== 0 && (board[r][c] === 1 || board[r][c] === 2) ? tie = true : tie = false;
+        });
+      };
     if (tie === true) {
       tieCount++;
       $tieGame.text(tieCount);
@@ -352,5 +341,5 @@ $(function () {
       }
     } update();
   }
-  init2();
+  init1();
 });
